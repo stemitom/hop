@@ -6,9 +6,13 @@
   "devDependencies": {
     "@types/bun": "latest",
     "@types/js-yaml": "^4.0.9",
+    "@types/toposort": "^2.0.7",
     "@types/uuid": "^11.0.0"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.1"
   }
 }
