@@ -116,9 +116,17 @@ export class HopDatabase {
   getRun(id: string) {
     return this.db.query("SELECT * FROM runs WHERE id = $id").get({ $id: id });
   }
-  
+
+  getRuns(limit = 50) {
+    return this.db.query("SELECT * FROM runs ORDER BY start_time DESC LIMIT $limit").all({ $limit: limit });
+  }
+
   getTaskRuns(runId: string) {
     return this.db.query("SELECT * FROM task_runs WHERE run_id = $runId").all({ $runId: runId });
+  }
+
+  getLogs(taskRunId: string) {
+    return this.db.query("SELECT * FROM logs WHERE task_run_id = $id ORDER BY timestamp ASC").all({ $id: taskRunId });
   }
 }
 
