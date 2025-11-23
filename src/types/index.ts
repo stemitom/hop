@@ -10,6 +10,7 @@ export const TaskSchema = z.object({
 export const PipelineSchema = z.object({
   id: z.string(),
   schedule: z.string().optional(),
+  failFast: z.boolean().default(false),
   tasks: z.array(TaskSchema),
 });
 
